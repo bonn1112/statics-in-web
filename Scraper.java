@@ -1,5 +1,6 @@
 package YosukeAkutsuPP04;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
@@ -51,7 +52,7 @@ public class Scraper {
 			String line;
 
 			// read from the urlconnection via the bufferedreader
-			while ((line = bufferedReader.readLine()) != null) {
+			while ((line = BoundedLineReader.readLine(bufferedReader, 5_000_000)) != null) {
 				content.append(line + "\n");
 			}
 			
